@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div ng-app="MyCrudModule" ng-controller="MyCrudCtrl">
+    <table class="table table-bordered">
+		<tr>
+			<th>Employee Id</th>
+			<th>FullName</th>
+			<th>EMPCode</th>
+			<th>Mobile</th>
+			<th>Position</th>
+		</tr>
+		<tr ng-repeat=" e in Employees">
+			<td>{{e.EmployeeID}}</td>
+			<td>{{e.FullName}}</td>
+			<td>{{e.EMPCode}}</td>
+			<td>{{e.Mobile}}</td>
+			<td>{{e.Position}}</td>
+			<td>
+
+				<span class="btn btn-primary" ng-click="Edit(e)">Edit</span>
+				<span class="btn btn-danger" ng-click="Delete(e.EmployeeID)">Delete</span>
+			</td>
+		</tr>
+    </table>
+
+    <span class="btn btn-primary" ng-click="AddE()" >Add Employee</span>
+
+	<div ng-show="divAdd">
+		<table class="table table-bordered">
+			<tr>
+				<td>Employee Id</td>
+				<td> <input type="text" ng-model="EmployeeID" /></td>
+			</tr>
+			<tr>
+				<td>FullName</td>
+				<td><input type="text" ng-model="FullName" /></td>
+			</tr>
+			<tr>
+				<td>EMPCode</td>
+				<td><input type="text" ng-model="EMPCode" /></td>
+			</tr>
+			<tr>
+				<td>Mobile</td>
+				<td><input type="text" ng-model="Mobile" /></td>
+			</tr>
+			<tr>
+				<td>Position</td>
+				<td><input type="text" ng-model="Position" /></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="btn btn-primary" ng-click="AddUpdate()">{{Action}}</span>
+					<span class="btn btn-info" ng-click="Close()">Close</span>
+				</td>
+				
+			</tr>
+		</table>
+	</div>
+   
+</div>
